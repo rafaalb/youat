@@ -1,0 +1,44 @@
+<div>
+	<h2>Creacion de cliente <small></small></h2>
+	<div class="jumbotron">
+		<div class="container">
+			<h1>Bienvenido!</h1>
+			Aqui puedes abrir una cuenta<br /><br />
+			<a ng-click="createBank()">Bank</a>
+			<p>
+			</p>
+<div class="col-lg-12">
+	<div class="col-lg-2">
+		
+	</div>
+	<div class="col-lg-8">
+			<form>
+		    <div class="form-group">
+		        <label for="exampleInputEmail1">Cedula del Cliente</label>
+		        <input type="number" class="form-control" id="clientcedula" placeholder="Introduzca Cedula" ng-model="client.cedula" required>
+		    </div>
+		    <div class="form-group">
+		        <label for="exampleInputPassword1">Nombre</label>
+		        <input type="text" class="form-control" id="nombclient" placeholder="Nombre" ng-model="client.nombre" required>
+		    </div>
+		    <div class="form-group">
+		        <label for="exampleInputPassword1">Apellido</label>
+		        <input type="text" class="form-control" id="apellclient" placeholder="Apellido" ng-model="client.apellido" required>
+		    </div>
+		    <div class="form-group">
+		        <label for="exampleInputPassword1">Fecha de Nacimiento</label>
+		        <input type="text" class="form-control" id="Fechclient" placeholder="Fecha de nacimiento" ng-model="client.fecha" required>
+		    </div>
+		    <button type="submit" class="btn btn-primary pull-right" ng-click="crearCliente(client)">Crear Cliente</button>
+		</form>
+		<div class="col-lg-2">
+			
+	</div>
+	</div>
+	</div>
+	<div class="col-lg-12">
+			<div ng-show="createdClient">Cliente creado con exito</div>
+	</div>
+		</div>
+	</div>
+</div>

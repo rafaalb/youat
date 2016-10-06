@@ -1,0 +1,293 @@
+    <nav class="navbar navbar-default">
+        <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" ui-sref="home" title="HOME"><i class="ion-paper-airplane"></i> You <span>At</span></a>
+            </div> 
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+            
+      <!--<ul class="nav nav-sidebar">
+        <li ng-class="{active: $state.includes('overview')}"><a ui-sref="overview">Crear Cliente <span class="sr-only">(current)</span></a></li>
+        <li ng-class="{active: $state.includes('clients')}"  ng-click="obtenerClientes()" ><a ui-sref="clients">Clientes en la empresa</a></li>
+        <li ng-class="{active: $state.includes('creditcard')}"><a ui-sref="creditcard">Crear Tarjeta de Credito</a></li>
+        <li ng-class="{active: $state.includes('payment')}"><a ui-sref="payment">Hacer Pago</a></li>
+        <li ng-class="{active: $state.includes('history')}" ng-click="historial()"><a ui-sref="history">Historial de Transacciones</a></li>
+      </ul>-->
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    
+                    <li ng-class="{active: $state.includes('explore')}"><a ui-sref="explore">Explore</a></li>
+                    <li ng-class="{active: $state.includes('destinos')}"><a ui-sref="home">Plan</a></li>
+                    <li><a>Book</a></li>
+                </ul> <!-- /.nav -->
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+    </nav>
+
+
+    <div class="container">
+                <div class="row carousel-holder">
+
+                    <div class="col-md-12">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img class="slide-image" src="http://placehold.it/1800x200" alt="">
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="http://placehold.it/1800x200" alt="">
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="http://placehold.it/1800x200" alt="">
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+        <div ng-controller="menuCtrl" class="row">
+            <section class="tour section-wrapper container">
+            <div  class="col-md-3">
+                <p class="lead">Explore</p>
+                <div class="list-group">
+
+                    <li class = "dropdown {[activoExp]}" >
+                        <a ng-click="activar('explore')" class = "list-group-item">
+                           
+                           EXPLORE<i class="ion-ios-home pull-right"></i>
+                        </a>
+
+                     </li>
+                        <div class="sub-explore" ng-show="explore">
+                           <li class ="dropdown"><a class="list-group-item sub-menu" ui-sref="explore">Destinations</a></li>
+                           <li class="dropdown"><a class="list-group-item sub-menu" href = "#">Things to Do</a></li>
+                           <li><a class="list-group-item sub-menu" href = "#">Places to go</a></li>
+                        </div>
+                    <li class = "dropdown {[activoPlan]}" >
+                      <a ng-click="plan=!plan" class = "list-group-item">
+                           
+                           PLAN<i class="ion-ios-home pull-right"></i>
+                        </a>
+                        
+                     </li>
+                       <div class="sub-plan" ng-show="plan">
+                           <li class ="dropdown"><a class="list-group-item">Plan your trip</a></li>
+                        </div>
+                    <li class = "dropdown {[activoBook]}">
+                        <a ng-click="book=!book" class = "list-group-item" data-toggle = "dropdown">
+                           BOOK 
+                           <i class="ion-android-bus pull-right"></i>
+                        </a>
+                        
+                     </li>
+
+                       <div class="sub-book" ng-show="book">
+                           <li class ="dropdown"><a class="list-group-item sub-menu" ui-sref="explore">Flights</a></li>
+                           <li class="dropdown"><a class="list-group-item sub-menu" href = "#">Hotels</a></li>
+                           
+                        </div>
+                </div>
+            </div>
+
+             <div class="col-md-9" ng-controller="searchCtrl">
+                    <div id="search-section"  ng-cloak="" class="row">
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="input-group">
+                                <md-input-container class="md-icon-float md-block">
+                              <!-- Use floating label instead of placeholder -->
+                              <label>What to do?</label>
+                              <md-icon><i class="ion-ios-home" style="font-size:20px;color:#60c9eb"></i></md-icon>
+                              <input g-places-autocomplete ng-model="todo"/>
+                            </md-input-container>
+
+                                <!-- end search -->
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="input-group">
+                            <md-input-container class="md-icon-float md-block">
+                              <!-- Use floating label instead of placeholder -->
+                              <label>Where to go?</label>
+                              <md-icon><i class="ion-plane" style="font-size:20px;color:#60c9eb"></i></md-icon>
+                              <input g-places-autocomplete ng-model="lugar"/>
+                            </md-input-container>
+
+                            </div>
+                        </div>
+                        
+
+                        <div class="col-md-4 col-sm-6">
+                            <br>
+                            <div class="btn btn-default border-radius custom-button" ng-click="getPlaces()">
+                                Search
+                            </div>
+                        </div>
+                            
+                
+                    </div>
+                    
+             
+                    <div ui-view>
+                    <!-- explore or plan view -->
+                    </div>
+            </div>
+
+
+
+            </section> <!-- /.tour -->
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- Our Blazzing offers -->
+    <section class="offer section-wrapper">
+  <div class="top-places">
+                <h2 class="section-title">
+                    Top places
+                </h2>
+                <div class="row">
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://placehold.it/320x300" alt="">
+                        <div class="caption">
+                            
+                            <h4><a href="#">Paris</a>
+                            </h4>
+                            <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                        <div class="ratings">
+                            <p class="pull-right">12 reviews</p>
+                            <p>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://placehold.it/320x300" alt="">
+                        <div class="caption">
+                            
+                            <h4><a href="#">Italy</a>
+                            </h4>
+                            <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                        <div class="ratings">
+                            <p class="pull-right">12 reviews</p>
+                            <p>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                  <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://placehold.it/320x300" alt="">
+                        <div class="caption">
+                            
+                            <h4><a href="#">Island</a>
+                            </h4>
+                            <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                        <div class="ratings">
+                            <p class="pull-right">13 reviews</p>
+                            <p>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <h4><a href="#">Show More...</a>
+                </h4>
+            </div> <!-- /.row -->
+        </div>
+    </section> <!-- /.offer -->
+
+
+    <section class="additional-services section-wrapper">
+
+    </section> <!-- /.Additional-services -->
+
+    <div class="subscribe section-wrapper">
+        <a class="brand-logo" href="index.html" title="HOME"><i class="ion-paper-airplane"></i> You <span>At</span></a>
+        <p class="subscribe-now">
+            Subscribe to our Newsletter
+        </p>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                    <div class="input-group">
+                        <input type="email" class="form-control border-radius" placeholder="Email address">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default border-radius custom-sub-btn" type="button">DONE</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </div>
+            </div>
+        </div>
+                    
+    
+    
+        <ul class="social-icon">
+            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+            <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+            <li><a href="#"><i class="ion-social-linkedin-outline"></i></a></li>
+            <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+        </ul>
+    </div> <!-- /.subscribe -->
+
+        
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-4">
+                    <div class="text-left">
+                        YouAt
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                     <a href="http://www.themewagon.com">YouAt</a>
+                </div>
+                <div class="col-xs-4">
+                    <div class="top">
+                        <a href="#header">
+                            <i class="ion-arrow-up-b"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>      
+    </footer>
